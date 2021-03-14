@@ -1,0 +1,91 @@
+KAFKA:
+
+ 
+￼
+Producers: Frontend, Hadoop, Database Slave, Chatserver
+
+Consumer:
+Database server, Security Systems, Realtime monitoring, Other services, Data Warehouse.
+
+ Using kafka for consumers to get the messages fro a single producers 
+Kafka makes it easy.
+
+adding a consumer is also easy, just have to subscribe to the message category .
+
+In simpler words kafka works like radio.
+
+it is a distributed published subscribe messaging system.
+developed by linkedin 
+
+Kafka is used for real time streams of data & used to collect big data for realtime analysis
+
+
+Topic:
+helps to segregate the data and consumers can subscribe to the topic they want. 
+Partition:
+
+ kafka topics anre divide into partitions, it allows to slipt the data between multiple brokers. each partition can be placed on seperate machine.
+ 
+Producer:
+ Any application who can publish messages to a topic
+
+Consumer:
+ application that subscribes to a topic and consumes the messages. it can have multiple consumer groups. it can be seperate process or seperate instance.
+
+
+
+Broker:
+A single machine in a kafka cluster.
+
+Zookeeper:
+ it is ans another apache open siource project.used for manage and coordinating kafka broker.
+
+￼
+
+ 
+In partitions we can only append data, We cannot remove or edit data.
+
+
+￼
+
+
+
+
+
+￼
+Replication is based on replication factor.  
+
+A topic is divided in to partitions, and they have an id and replicated into brokers, their replica id is based on their broker number {ie., broker 2 has the replica id as  [repl 2] } . for each partition kafka broker will elect one replica as the leader of the partiton. the leader will server the purpose. once the broker is failled then other replica from broker will serve the purpose.
+
+Message :
+ They are nothing but records, each recode consists of time, messege key. to control thw message that are to be written to partition a key is used. Messagess with smae key always written to the sma e partiton.
+ 
+
+Producer:
+Publisher or writer of a new message to a specific topic.
+ The producer doesnt care what partition a specific message is writen 
+directing messages to a partition is done using the message key and a partitioner, thes will generate a hash of the key and map it to a partition. Every messege producer publishes in the form of a key : value pair.
+
+
+Consumer:
+Consumer reads the message. The consume subscribe to one or more topics and reads the message sequentially.
+it keeps the track of the messages it has consumes by keeping th etrack on thnoffset of messages.
+off set is a bit of metadata that kafka adds to each message as it is produced. Each partition has a unique offset which stored.
+with this offset the consumer can stop, restart without losing its current state.
+￼
+
+
+Zookeeper: 
+its performes 3 operations electing controller, clustermembership, topic configuration
+
+controller will allow the leader and follow relationship its partitions.  if the leader broker gets down it will elect new one. makes sure that only one leader in one partition.
+
+Cluster membership will check the which broker are alive and partof the cluster.
+
+topic config. keeps the track of the topic, partions, existing leaders,
+
+￼
+
+
+
+ 
